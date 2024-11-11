@@ -32,22 +32,34 @@ $initialHeight: calc(352 * 100vw / 1920);
   }
 
   .content {
-    width: calc($initialWidth - (2px * 2));
-    height: calc($initialHeight - (2px * 2));
-    z-index: 2;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
     display: flex;
     position: relative;
-    background: linear-gradient(to bottom, #6377E1, #2920A5);
     border-radius: 20px;
-    transition: .3s;
     padding: calc(20 * 100vw / 1920);
     gap: calc(16 * 100vw / 1920);
 
-    @include for-tablet-up {
-      //width: calc(calc(328  * 100vw / 768) - (2px * 2));
-      width: calc(328px - (2px * 2));
-      //height: calc(calc(352 * 100vw / 768) - (2px * 2));
-      height: calc(352px - (2px * 2));
+    &:before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: calc(2 * 100vw / 1920);
+      left: calc(2 * 100vw / 1920);
+      transition: .2s;
+      bottom: calc(2 * 100vw / 1920);
+      right: calc(2 * 100vw / 1920);
+      border-radius: calc(20px - 2 * 100vw / 1920);
+      background: linear-gradient(to bottom, #6377E1, #2920A5);
+
+      @include for-tablet-up {
+        border-radius: 18px;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+      }
     }
 
     .image {
@@ -67,14 +79,20 @@ $initialHeight: calc(352 * 100vw / 1920);
 
   &:hover {
     .content {
-      width: calc($initialWidth - (6px * 2));
-      height: calc($initialHeight - (6px * 2));
+      &:before {
+        border-radius: calc(20px - 6 * 100vw / 1920);
+        top: calc(6 * 100vw / 1920);
+        left:calc(6 * 100vw / 1920);
+        bottom: calc(6 * 100vw / 1920);
+        right: calc(6 * 100vw / 1920);
 
-      @include for-tablet-up {
-        //width: calc(calc(328  * 100vw / 768) - (6px * 2));
-        width: calc(328px - (6px * 2));
-        //height: calc(calc(352 * 100vw / 768) - (6px * 2));
-        height: calc(352px - (6px * 2));
+        @include for-tablet-up {
+          border-radius: 14px;
+          top: 6px;
+          left: 6px;
+          right: 6px;
+          bottom: 6px;
+        }
       }
     }
   }
@@ -83,6 +101,7 @@ $initialHeight: calc(352 * 100vw / 1920);
     position: relative;
     width: calc(48 * 100vw / 1920);
     height: calc(48 * 100vw / 1920);
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,9 +110,7 @@ $initialHeight: calc(352 * 100vw / 1920);
 
 
     @include for-tablet-up {
-      //width: calc(48 * 100vw / 768);
       width: 48px;
-      //height: calc(48 * 100vw / 768);
       height: 48px;
     }
 
@@ -111,6 +128,7 @@ $initialHeight: calc(352 * 100vw / 1920);
     .circleContent {
       width: calc(44 * 100vw / 1920);
       height: calc(44 * 100vw / 1920);
+      aspect-ratio: 1 / 1;
       display: flex;
       z-index: 2;
       align-items: center;
@@ -120,9 +138,7 @@ $initialHeight: calc(352 * 100vw / 1920);
       color: white;
 
       @include for-tablet-up {
-        //width: calc(44 * 100vw / 768);
         width: 44px;
-        //height: calc(44 * 100vw / 768);
         height: 44px;
       }
     }
@@ -136,7 +152,9 @@ $initialHeight: calc(352 * 100vw / 1920);
   }
 
   .pinkContent {
-    background: linear-gradient(to bottom, #E163E1, #741595);
+    &:before {
+      background: linear-gradient(to bottom, #E163E1, #741595);
+    }
   }
 
   .pinkCircleBorder {
@@ -155,7 +173,9 @@ $initialHeight: calc(352 * 100vw / 1920);
   }
 
   .greenContent {
-    background: linear-gradient(to bottom, #55CE00, #014D1D);
+    &:before {
+      background: linear-gradient(to bottom, #55CE00, #014D1D);
+    }
   }
 
   .greenCircleBorder {

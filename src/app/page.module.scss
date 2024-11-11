@@ -1,4 +1,4 @@
-@import "/src/shared/scss/mixins";
+@import "../shared/scss/mixins";
 
 .page {
   width: 100%;
@@ -12,7 +12,7 @@
     height: max-content;
     width: max-content;
     border-radius: calc(28px - 4 * (100vw / 1920));
-    padding: 4px;
+    padding: 8px;
     background: linear-gradient(to bottom, #6B7DDE1F, #2921A5);
     box-shadow: 0 0 0 4px inset #6B7DDE3D;
     filter: drop-shadow(0 24px 48px #172B97B8);
@@ -26,7 +26,6 @@
 
     @include for-tablet-up {
       flex-direction: column;
-      //font-size: calc(20 * 100vw / 768);
       font-size: 20px;
     }
 
