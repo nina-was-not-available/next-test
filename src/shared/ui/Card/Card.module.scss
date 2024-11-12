@@ -14,9 +14,12 @@ $initialHeight: calc(352 * 100vw / 1920);
   border-radius:20px;
 
   @include for-tablet-up {
-    //width: calc(328 * 100vw / 768);
+    width: calc(328 * 100vw / 768);
+    height: calc(352 * 100vw / 768);
+  }
+
+  @include for-phone-only {
     width: 328px;
-    //height: calc(352 * 100vw / 768);
     height: 352px;
   }
 
@@ -39,7 +42,13 @@ $initialHeight: calc(352 * 100vw / 1920);
     position: relative;
     border-radius: 20px;
     padding: calc(20 * 100vw / 1920);
-    gap: calc(16 * 100vw / 1920);
+    @include for-tablet-up {
+      padding: calc(20 * 100vw / 768);
+    }
+
+    @include for-phone-only {
+      padding: 20px;
+    }
 
     &:before {
       content: '';
@@ -54,7 +63,20 @@ $initialHeight: calc(352 * 100vw / 1920);
       background: linear-gradient(to bottom, #6377E1, #2920A5);
 
       @include for-tablet-up {
+        top: calc(2 * 100vw / 768);
+        left: calc(2 * 100vw / 768);
+        right: calc(2 * 100vw / 768);
+        bottom: calc(2 * 100vw / 768);
+        padding: calc(20 * 100vw / 768);
+        gap: calc(16 * 100vw / 768);
+        border-radius: calc(20px - 2 * 100vw / 768);
+      }
+
+
+      @include for-phone-only {
         border-radius: 18px;
+        padding: 20px;
+        gap: 16px;
         top: 2px;
         left: 2px;
         right: 2px;
@@ -62,17 +84,43 @@ $initialHeight: calc(352 * 100vw / 1920);
       }
     }
 
+    .textContent {
+      display: flex;
+      height: max-content;
+      text-wrap: balance;
+      padding-right: calc(16 * (100vw / 1920));
+      align-items: center;
+      justify-content: center;
+      gap: calc(16 * 100vw / 1920);
+      font-size: calc(20 * 100vw / 1920);
+
+      @include for-tablet-up {
+        gap: calc(16 * 100vw / 768);
+        font-size: calc(20 * 100vw / 768);
+      }
+
+      @include for-phone-only {
+        gap: 16px;
+        font-size: 20px;
+      }
+    }
+
     .image {
       position: absolute;
       left: 50%;
-      width: 90%;
-      bottom: -20%;
+      width: calc(305 * (100vw / 1920));
+      bottom: calc(-40 * (100vw / 1920));
       object-fit: cover;
       height: auto;
       transform: translateX(-50%);
       @include for-tablet-up {
-        width: 110%;
-        bottom: -10%;
+        width: calc(328 * 100vw / 768);
+        bottom: calc(-56 * 100vw / 768);
+      }
+
+      @include for-phone-only {
+        width: 328px;
+        bottom: -56px;
       }
     }
   }
@@ -87,6 +135,14 @@ $initialHeight: calc(352 * 100vw / 1920);
         right: calc(6 * 100vw / 1920);
 
         @include for-tablet-up {
+          top: calc(6 * 100vw / 768);
+          left: calc(6 * 100vw / 768);
+          right: calc(6 * 100vw / 768);
+          bottom: calc(6 * 100vw / 768);
+          border-radius: calc(20px - 6 * 100vw / 768);
+        }
+
+        @include for-phone-only {
           border-radius: 14px;
           top: 6px;
           left: 6px;
@@ -107,9 +163,12 @@ $initialHeight: calc(352 * 100vw / 1920);
     justify-content: center;
     background: linear-gradient(to bottom, #2920A5, #6377E1);
     border-radius: 50%;
-
-
     @include for-tablet-up {
+      width: calc(48 * 100vw / 768);
+      height: calc(48 * 100vw / 768);
+    }
+
+    @include for-phone-only {
       width: 48px;
       height: 48px;
     }
@@ -138,6 +197,11 @@ $initialHeight: calc(352 * 100vw / 1920);
       color: white;
 
       @include for-tablet-up {
+        width: calc(44 * 100vw / 768);
+        height: calc(44 * 100vw / 768);
+      }
+
+      @include for-phone-only {
         width: 44px;
         height: 44px;
       }
@@ -154,6 +218,29 @@ $initialHeight: calc(352 * 100vw / 1920);
   .pinkContent {
     &:before {
       background: linear-gradient(to bottom, #E163E1, #741595);
+    }
+
+    .image {
+      width: calc(377 * (100vw / 1920));
+      bottom: calc(-52 * 100vw / 1920);
+
+      @include for-tablet-up {
+        width: calc(377 * 100vw / 768);
+        bottom: calc(-52 * 100vw / 768);
+      }
+
+      @include for-phone-only {
+        width: 377px;
+        bottom: -52px;
+      }
+    }
+
+    .textContent {
+      width: 60%;
+
+      @include for-tablet-up {
+        width: 80%;
+      }
     }
   }
 
@@ -175,6 +262,21 @@ $initialHeight: calc(352 * 100vw / 1920);
   .greenContent {
     &:before {
       background: linear-gradient(to bottom, #55CE00, #014D1D);
+    }
+
+    .image {
+      width: calc(392 * (100vw / 1920));
+      bottom: calc(-30 * 100vw / 1920);
+
+      @include for-tablet-up {
+        width: calc(392 * 100vw / 768);
+        bottom: calc(-35 * 100vw / 768);
+      }
+
+      @include for-phone-only {
+        width: 392px;
+        bottom: -35px;
+      }
     }
   }
 

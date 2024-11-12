@@ -5,8 +5,46 @@
   min-height: 100vh;
   height: max-content;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    position: relative;
+    height: max-content;
+    gap: calc(36 * (100vw / 1920));
+
+    h3 {
+      padding-left: calc(23 * (100vw / 1920));
+      font-weight: 700;
+      font-size: calc(24 * (100vw / 1920));
+    }
+
+    @include for-tablet-up {
+      padding-left: 0;
+      padding-block:  calc(32 * (100vw / 1920));
+      max-width: calc(344 * (100vw / 768));
+      gap: calc(32 * (100vw / 768));
+
+      h3 {
+        font-size: calc(24 * (100vw / 768));
+      }
+    }
+
+    @include for-phone-only {
+      max-width: 344px;
+      padding-block: 32px;
+      gap: 32px;
+
+      h3 {
+        font-size: 24px;
+      }
+    }
+  }
 
   .container {
     height: max-content;
@@ -16,7 +54,6 @@
     background: linear-gradient(to bottom, #6B7DDE1F, #2921A5);
     box-shadow: 0 0 0 4px inset #6B7DDE3D;
     filter: drop-shadow(0 24px 48px #172B97B8);
-    font-size: calc(20 * 100vw / 1920);
     color: white;
     font-weight: 700;
     display: flex;
@@ -26,8 +63,8 @@
 
     @include for-tablet-up {
       flex-direction: column;
-      font-size: 20px;
     }
+
 
 
     .cardContainer {
@@ -44,15 +81,37 @@
         z-index: 55;
 
         @include for-tablet-up {
-          height: 40px;
+          height: calc(40 * 100vw / 768);
           top: -7%;
           left: 80%;
           width: auto;
           transform: scaleY(-1) rotate(270deg);
         }
 
+        @include for-phone-only {
+          height: 40px;
+        }
+
 
       }
+    }
+  }
+
+  .buttonContainer {
+    position: absolute;
+    bottom: -25%;
+    right: 20%;
+
+    @include for-tablet-up {
+      margin-top: calc(32 * (100vw / 768));
+      transform: translateX(0);
+      align-self: center;
+      right: 0;
+      position: relative;
+    }
+
+    @include for-phone-only {
+      margin-top: 32px;
     }
   }
 }

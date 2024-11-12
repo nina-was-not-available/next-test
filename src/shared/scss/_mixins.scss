@@ -3,3 +3,9 @@
         @content;
     }
 }
+
+@mixin for-phone-only {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
